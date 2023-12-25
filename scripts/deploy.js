@@ -5,13 +5,13 @@ async function main() {
 const [deployer] = await ethers.getSigners();
 
 // Deploy the StorageVictim contract
-console.log("Deploying StorageVictim with the account:", deployer.address);
-const StorageVictim = await ethers.getContractFactory("StorageVictim");
-const storageVictim = await StorageVictim.deploy();
+console.log("Deploying StorageVictimResolved with the account:", deployer.address);
+const StorageVictimResolved = await ethers.getContractFactory("StorageVictimResolved");
+const storageVictimResolved = await StorageVictimResolved.deploy();
 
-await storageVictim.deployed();
+//await storageVictimResolved.deploy();
 
-console.log("StorageVictim contract deployed to:", storageVictim.address);
+console.log("StorageVictimResolved contract deployed to:", storageVictimResolved.address);
 
 console.log("Deployment completed!");
 }
