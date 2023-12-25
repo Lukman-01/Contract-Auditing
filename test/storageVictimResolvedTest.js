@@ -12,7 +12,7 @@ const StorageVictimResolved = await ethers.getContractFactory('StorageVictimReso
 [owner, user1, user2] = await ethers.getSigners();
 
 storageVictimResolved = await StorageVictimResolved.deploy();
-await storageVictimResolved.deployed();
+//await storageVictimResolved.deployed();
 });
 
 it('should store and retrieve user data correctly', async function () {
