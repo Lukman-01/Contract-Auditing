@@ -3,7 +3,7 @@
 
 // contract StorageVictim {
 
-// address owner;
+// address owner; @audit-issue visibility of owner not specified
 // struct Storage {
 // address user;
 // uint amount;
@@ -16,11 +16,13 @@
 // owner = msg.sender;
 // }
 
-// // @audit-issue no access control, anyone can call store function
-// function store(uint _amount) public {
+// // 
+// function store(uint _amount) public {           @audit-issue no access control, anyone can call store function
 // // uninitialised pointer. str.user points to the storage address 0 which is "owner"
-// // @audit-issue Uninitialized variable
-// Storage str;
+
+// // @audit-issue Lack of Input Validation
+
+// Storage str;  @audit-issue Uninitialized variable
 // str.user = msg.sender;
 // str.amount = _amount;
 
