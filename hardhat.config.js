@@ -1,17 +1,16 @@
 require("@nomicfoundation/hardhat-toolbox");
-require("hardhat-deploy");
+require("dotenv").config({ path: ".env" });
+
+const ALCHEMY_HTTP_URL = process.env.ALCHEMY_HTTP_URL;
+const PRIVATE_KEY = process.env.PRIVATE_KEY;
+
 
 module.exports = {
-solidity: "0.8.19",
-networks: {
-hardhat: {
-chainId: 1337,
-},
-},
-paths: {
-artifacts: "./artifacts",
-cache: "./cache",
-sources: "./contracts",
-tests: "./test",
-},
+  solidity: "0.8.19",
+  networks: {
+    sepolia: {
+      url: ALCHEMY_HTTP_URL,
+      accounts: [PRIVATE_KEY],
+    },
+  },
 };
